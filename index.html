@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-        <link rel="stylesheet" href="style.css">
-        <title>Brain Playground</title>
-    </head>
-    <body>
-        <header>
-            <h1>Welcome to Brain Playground <3</h1>
-        </header>
-        <main>
-            <section>
-                <h2>About Us</h2>
-                <p>Brain Playground is a safe space for anyone to relax and just unwind from a tiring day.</p>
-            </section>
-            <section>
-        <h2>Games</h2>
-        <button onclick="startClick()">Click Game</button>
-        <button onclick="startMemoryGame()">Memory Game</button>
-        <button onclick="startPuzzle()">Puzzle Game</button>
-    </section>
-</main>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <title>Brain Playground</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Brain Playground <3</h1>
+        <!-- Optional logo for floating/shadow effect -->
+        <img src="logo.png" alt="Brain Playground Logo" class="logo">
+    </header>
+    
+    <main>
+        <section>
+            <h2>About Us</h2>
+            <p>Brain Playground is a safe space for anyone to relax and just unwind from a tiring day.</p>
+        </section>
         
-        <footer>
-            <p>&copy; 2025 Brain Playground</p>
-        </footer>
-        <script src="script.js"></script>
-    </body>
+        <section>
+            <h2>Games</h2>
+            <button onclick="startClick()">Click Game</button>
+            <button onclick="startMemoryGame()">Memory Game</button>
+            <button onclick="startPuzzle()">Puzzle Game</button>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Brain Playground</p>
+    </footer>
+    
+    <!-- Link to JS file -->
+    <script src="script.js" defer></script>
+</body>
 </html>
