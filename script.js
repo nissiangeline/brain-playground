@@ -10,16 +10,27 @@ function startClick() {
 }
 
 function startMemoryGame() {
-    let memorySequence = [];
+    const colors = ["red", "blue", "green", "yellow"];
+    let sequence = [];
     let userSequence = [];
-    let level = 0;
+    let level = 1;
 
-    // Memory game logic goes here
-    // Example: Show a sequence, ask user to repeat, check for correctness
-    alert("Memory Game coming soon! 🧠");
+    // Generate a random sequence
+    for (let i = 0; i < level; i++) {
+        sequence.push(colors[Math.floor(Math.random() * colors.length)]);
+    }
+
+    // Show the sequence to the user
+    alert("Memorize this sequence:\n" + sequence.join(", "));
+
+    // Ask the user to repeat the sequence
+    let answer = prompt("Enter the sequence (comma separated):").replace(/\s/g, "");
+    userSequence = answer.split(",");
+
+    // Check if the user got it right
+    if (userSequence.join(",") === sequence.join(",")) {
+        alert("Correct! 🎉");
+    } else {
+        alert("Oops! Try again. The correct sequence was: " + sequence.join(", "));
+    }
 }
-
-function startPuzzle() {
-    // Puzzle game logic goes here
-    alert("Puzzle Game coming soon! 🧩");
-}     
