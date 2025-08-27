@@ -15,34 +15,30 @@ function startMemoryGame() {
     const colors = ["red", "blue", "green", "yellow"];
     let sequence = [];
     let level = 0;
-    let gameOver = false;
 
-    alert("Welcome to the Memory Game! 🎯 Memorize the growing sequence and type it back.");
+    alert("Welcome to the Memory Game! 🎯 Remember the sequence. The game continues until you make a mistake.");
 
-    while(!gameOver) {
+    while(true) {
         // Add a new random color to the sequence
         const nextColor = colors[Math.floor(Math.random() * colors.length)];
         sequence.push(nextColor);
         level++;
 
-        // Show the sequence
-        alert("Level " + level + ":\n" + sequence.join(", "));
+        // Show full sequence so far
+        let sequenceText = sequence.join(", ");
+        let answer = prompt("Level " + level + ":\nEnter the full sequence:\n" + sequenceText);
 
-        // Ask user to type full sequence
-        let answer = prompt("Enter the full sequence (comma separated):");
         if(answer === null) {
             alert("Game exited!");
             break;
         }
 
-        let userSequence = answer.replace(/\s/g, "").split(",");
-
-        // End game only if user breaks the chain
+        let userSequence = answer.replace(/\s/g,"").split(",");
         if(userSequence.join(",") !== sequence.join(",")) {
             alert("Oops! Wrong sequence. 😢\nCorrect sequence was: " + sequence.join(", "));
-            gameOver = true;
+            break; // end game on mistake
         } else {
-            alert("Correct! 🎉 Get ready for the next level!");
+            alert("Correct! 🎉 Next level!");
         }
     }
 
@@ -54,11 +50,13 @@ let puzzle = [];
 const puzzleGrid = document.getElementById("puzzle-grid");
 
 function startPuzzleVisual() {
+    // Initialize puzzle
     puzzle = [1,2,3,4,5,6,7,8,0];
     shuffleArray(puzzle);
     renderPuzzle();
 }
 
+// Render puzzle visually
 function renderPuzzle() {
     puzzleGrid.innerHTML = "";
     puzzle.forEach((num, idx) => {
@@ -72,6 +70,7 @@ function renderPuzzle() {
     });
 }
 
+// Move tile if adjacent to empty
 function moveTile(idx) {
     const emptyIdx = puzzle.indexOf(0);
     if(isAdjacent(idx, emptyIdx)) {
@@ -83,6 +82,7 @@ function moveTile(idx) {
     }
 }
 
+// Check adjacency in 3x3 grid
 function isAdjacent(i,j) {
     const adj = [
         [0,1],[0,3],[1,0],[1,2],[1,4],[2,1],[2,5],
@@ -92,17 +92,16 @@ function isAdjacent(i,j) {
     return adj.some(pair => (pair[0]===i && pair[1]===j) || (pair[0]===j && pair[1]===i));
 }
 
+// Check if puzzle solved
 function isSolved(puzzle) {
     for(let i=0;i<8;i++) if(puzzle[i] !== i+1) return false;
     return puzzle[8] === 0;
 }
 
+// Shuffle helper
 function shuffleArray(array) {
-    for (let i=array.length-1; i>0; i--) {
-        let j = Math.floor(Math.random()*(i+1));
+    for(let i=array.length-1;i>0;i--) {
+        const j = Math.floor(Math.random()*(i+1));
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
-
-
-
