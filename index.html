@@ -15,16 +15,22 @@
     </header>
     
     <main>
+        <!-- About Section -->
         <section>
             <h2>About Us</h2>
             <p>Brain Playground is a safe space for anyone to relax and just unwind from a tiring day.</p>
         </section>
         
+        <!-- Games Section -->
         <section>
             <h2>Games</h2>
             <button onclick="startClick()">Click Game</button>
             <button onclick="startMemoryGame()">Memory Game</button>
-            <button onclick="startPuzzle()">Puzzle Game</button>
+            <button onclick="startPuzzleVisual()">Puzzle Game</button>
+            
+            <!-- Visual Puzzle Grid -->
+            <div id="puzzle-grid" class="puzzle-grid"></div>
+            <button onclick="startPuzzleVisual()">Restart Puzzle</button>
         </section>
     </main>
     
@@ -32,7 +38,8 @@
         <p>&copy; 2025 Brain Playground</p>
     </footer>
     
-    <!-- Link to JS file -->
+    <!-- JS file -->
     <script src="script.js" defer></script>
 </body>
 </html>
+
