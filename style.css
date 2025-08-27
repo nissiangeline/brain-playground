@@ -1,6 +1,6 @@
 /* -------------------- Body & Background -------------------- */
 body {
-  font-family: 'Baloo 2', cursive; /* playful font */
+  font-family: 'Baloo 2', cursive;
   text-align: center;
   background: radial-gradient(circle at top left, #f9c5d1, #a6f0d1, #f0e5a6);
   color: #222;
@@ -89,6 +89,40 @@ body::before {
 @keyframes moveBG {
   0% { transform: rotate(0deg) translate(0,0); }
   100% { transform: rotate(360deg) translate(0,0); }
+}
+
+/* -------------------- Puzzle Grid -------------------- */
+.puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.puzzle-tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.puzzle-tile:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+}
+
+.puzzle-empty {
+    background: transparent;
+    cursor: default;
+    box-shadow: none;
 }
 
 /* -------------------- Footer -------------------- */
